@@ -6,13 +6,13 @@ def key_for_min_value(name_hash)
   else
     max_val = name_hash.key(name_hash.values.max)
     #max_val = name_hash.max_by {|k,v| v}
-    name_hash.each do |key, value|
+    name_hash.each do |symbol, value|
       if value < max_val
         min_value = value
       else
         max_value = value
       end
     end
-    return name_hash[min_value]
+    return name_hash.select{|key, val| val[min_value]}
   end
 end
